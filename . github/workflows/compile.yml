@@ -1,1 +1,55 @@
+name: Compile ATLANTA-RP
 
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "gamemodes/**"
+      - "qawno/include/**"
+      - ".github/workflows/compile.yml"
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  PAWNCC_VERSION: "v3.10.11"
+  GAMEMODE_ENTRY: "gamemodes/atrp.pwn"
+  GAMEMODE_OUTPUT: "gamemodes/atrp.amx"
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download community pawncc (Linux)
+        run: |
+          mkdir -p pawncc
+          curl -sSL -o pawncc.tar.gz \
+            "https://github.com/pawn-lang/compiler/releases/download/${PAWNCC_VERSION}/pawnc-${PAWNCC_VERSION#v}-linux.tar.gz"
+          tar -xzf pawncc.tar.gz -C pawncc --strip-components=1
+          chmod +x pawncc/bin/pawncc
+
+      - name: Compile gamemode
+        run: |
+          cd gamemodes
+          ../pawncc/bin/pawncc atrp.pwn \
+            -i../qawno/include \
+            -O2 -d3 -Z+ \
+            -o atrp
+
+      - name: Verify output
+        run: |
+          if [ ! -f "${GAMEMODE_OUTPUT}" ]; then
+            echo "Compilation échouée : atrp.amx introuvable."
+            exit 1
+          fi
+          echo "Compilation réussie : $(ls -lh ${GAMEMODE_OUTPUT})"
+
+      - name: Upload compiled gamemode
+        uses: actions/upload-artifact@v4
+        with:
+          name: atrp-amx
+          path: ${{ env.GAMEMODE_OUTPUT }}
+          retention-days: 14
