@@ -34,6 +34,7 @@ jobs:
       - name: Compile gamemode
         run: |
           cd gamemodes
+          export LD_LIBRARY_PATH="${GITHUB_WORKSPACE}/pawncc/lib:${GITHUB_WORKSPACE}/pawncc/bin:${LD_LIBRARY_PATH}"
           ../pawncc/bin/pawncc atrp.pwn \
             -i../qawno/include \
             -O2 -d3 -Z+ \
