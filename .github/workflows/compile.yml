@@ -5,7 +5,7 @@ on:
     branches: [ main ]
     paths:
       - "gamemodes/**"
-      - "qawno/include/**"
+      - "qwano/include/**"
       - ".github/workflows/compile.yml"
   pull_request:
     branches: [ main ]
@@ -34,12 +34,12 @@ jobs:
       - name: Compile gamemode
         run: |
           echo "Vérification du dossier includes :"
-          ls "${GITHUB_WORKSPACE}/qawno/include" | head -5
-          test -f "${GITHUB_WORKSPACE}/qawno/include/open.mp.inc" && echo "open.mp.inc trouvé" || echo "open.mp.inc INTROUVABLE"
+          ls "${GITHUB_WORKSPACE}/qwano/include" | head -5
+          test -f "${GITHUB_WORKSPACE}/qwano/include/open.mp.inc" && echo "open.mp.inc trouvé" || echo "open.mp.inc INTROUVABLE"
           cd gamemodes
           export LD_LIBRARY_PATH="${GITHUB_WORKSPACE}/pawncc/lib:${GITHUB_WORKSPACE}/pawncc/bin:${LD_LIBRARY_PATH}"
           ../pawncc/bin/pawncc atrp.pwn \
-            -i"${GITHUB_WORKSPACE}/qawno/include/" \
+            -i"${GITHUB_WORKSPACE}/qwano/include/" \
             -O2 -d3 -Z+ \
             -oatrp
 
