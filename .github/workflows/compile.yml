@@ -38,7 +38,7 @@ jobs:
           ../pawncc/bin/pawncc atrp.pwn \
             -i../qawno/include \
             -O2 -d3 -Z+ \
-            -o atrp
+            -oatrp
 
       - name: Verify output
         run: |
