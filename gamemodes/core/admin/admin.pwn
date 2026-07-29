@@ -117,7 +117,7 @@ stock AdminName(playerid)
 
 stock AdminNameList(playerid)
 {
-	new admname[22];
+	new admname[30];
 	switch(SpielerInfo[playerid][sAdmin])
 	{
 		case 0:{admname="Joueur";}
