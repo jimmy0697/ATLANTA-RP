@@ -223,6 +223,19 @@ main()
 #include "core/casino/roulette.pwn"
 #include "core/casino/casino.pwn"
 
+#include "core/mysql/bcrypt/OnPasswordChecked.pwn"
+#include "core/mysql/bcrypt/OnPasswordHashed.pwn"
+
+#include "core/mysql/functions/mysql_CreateTables.pwn"
+#include "core/mysql/functions/mysql_Delete.pwn"
+#include "core/mysql/functions/mysql_GetFloat.pwn"
+#include "core/mysql/functions/mysql_GetInt.pwn"
+#include "core/mysql/functions/mysql_GetIntEx.pwn"
+#include "core/mysql/functions/mysql_GetString.pwn"
+#include "core/mysql/functions/mysql_SetFloat.pwn"
+#include "core/mysql/functions/mysql_SetInt.pwn"
+#include "core/mysql/functions/mysql_SetString.pwn"
+
 #include "core/faction/faction.pwn"
 #include "core/faction/police.pwn"
 #include "core/faction/government.pwn"
@@ -248,18 +261,6 @@ main()
 #include "core/robbery/evidence.pwn"
 #include "core/robbery/bankrob.pwn"
 
-#include "core/mysql/bcrypt/OnPasswordChecked.pwn"
-#include "core/mysql/bcrypt/OnPasswordHashed.pwn"
-
-#include "core/mysql/functions/mysql_CreateTables.pwn"
-#include "core/mysql/functions/mysql_Delete.pwn"
-#include "core/mysql/functions/mysql_GetFloat.pwn"
-#include "core/mysql/functions/mysql_GetInt.pwn"
-#include "core/mysql/functions/mysql_GetIntEx.pwn"
-#include "core/mysql/functions/mysql_GetString.pwn"
-#include "core/mysql/functions/mysql_SetFloat.pwn"
-#include "core/mysql/functions/mysql_SetInt.pwn"
-#include "core/mysql/functions/mysql_SetString.pwn"
 #include "core/mysql/functions/mysql_ReturnBetaKey.pwn"
 #include "core/mysql/functions/mysql_CheckBeta.pwn"
 
