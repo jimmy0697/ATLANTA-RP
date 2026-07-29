@@ -864,7 +864,9 @@ showPlayerPrivateCarList(playerid) {
 		PrivateCarList[playerid][carCount] = i;
 		carCount++;
 		if(carCount == MAX_VEHICLE_PLAYER_LIST) {
-			SendClientMessage(playerid, COLOR_GREY, "Seuls "#MAX_VEHICLE_PLAYER_LIST" véhicules peuvent être affichés en jeu ; si tu en possèdes davantage, utilise le panneau de contrôle utilisateur.");
+			new msg[160];
+			format(msg, sizeof(msg), "Seuls %d véhicules peuvent être affichés en jeu ; si tu en possèdes davantage, utilise le panneau de contrôle utilisateur.", MAX_VEHICLE_PLAYER_LIST);
+			SendClientMessage(playerid, COLOR_GREY, msg);
 			break;
 		}
 	}
