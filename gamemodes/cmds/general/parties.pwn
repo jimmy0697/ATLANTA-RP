@@ -5,7 +5,9 @@ CMD:createpartei(playerid, params[]) {
     new string[1028];
     strcat(string, "Bienvenue à la mairie de Los Santos !\n");
     strcat(string, "Tu as ici la possibilité de fonder ton propre parti\n");
-    strcat(string, "in die Politik in San Andreas einzusteigen. Die Gründung einer Partei kostet "#PARTIE_COSTS"$.\n");
+    new partieCostMsg[64];
+    format(partieCostMsg, sizeof(partieCostMsg), "in die Politik in San Andreas einzusteigen. Die Gründung einer Partei kostet %d$.\n", PARTIE_COSTS);
+    strcat(string, partieCostMsg);
     strcat(string, "Tu ne peux fonder un parti qu'avec l'aide d'un autre joueur. Une fois ton parti\n");
     strcat(string, "créé, tu pourras participer aux élections du gouvernement.\n\n");
     strcat(string, "Convaincu(e) ? Tu peux maintenant commencer à fonder ton propre parti.");
