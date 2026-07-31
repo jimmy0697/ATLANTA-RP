@@ -6,7 +6,11 @@ COMMAND:addtmast(playerid,params[])
 	if(IsPlayerInAnyVehicle(playerid))return SendClientMessage(playerid,COLOR_RED,"Im Fahrzeug nicht möglich.");
     if(TMastenCount() == MAX_MASTEN)return SendClientMessage(playerid,COLOR_RED,"Es wurde bereits die maximal Anzahl an Funkmasten erstellt!");
     if(ReturnHempfangRate(playerid) != -1)return SendClientMessage(playerid,COLOR_RED,"Es befindet sich schon im Umkreis von 600 Metern ein Funkmast.");
-	if((FrakInfo[SpielerInfo[playerid][sFraktion]][fiFrakKasse] - MAX_TMASTENPRICE) < 0)return SendClientMessage(playerid,COLOR_RED,"Eure Fraktionskasse besitzt nicht so viel Geld.("#MAX_TMASTENPRICE"$)");
+	if((FrakInfo[SpielerInfo[playerid][sFraktion]][fiFrakKasse] - MAX_TMASTENPRICE) < 0) {
+		new tmastMsg[96];
+		format(tmastMsg, sizeof(tmastMsg), "Eure Fraktionskasse besitzt nicht so viel Geld.(%d$)", MAX_TMASTENPRICE);
+		return SendClientMessage(playerid,COLOR_RED,tmastMsg);
+	}
 	CreateTmasten(playerid);
   	return 1;
 }
