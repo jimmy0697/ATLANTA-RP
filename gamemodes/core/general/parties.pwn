@@ -70,7 +70,12 @@ Partie_DialogResponse(playerid, dialogid, response, listitem) {
         case DIALOG_CREATE_PARTIE: {
             if(!response) return 1;
             if(GetPlayerMoneyEx(playerid) < PARTIE_COSTS) return SendClientMessage(playerid, COLOR_ERRORTEXT, "Tu n'as pas assez d'argent sur toi !");
-            if(GetPlayerScore(playerid) < PARTIE_CREATE_MIN_LEVEL) return SendClientMessage(playerid, COLOR_ERRORTEXT, "Un parti ne peut être fondé qu'à partir du niveau "#PARTIE_CREATE_MIN_LEVEL);
+            if(GetPlayerScore(playerid) < PARTIE_CREATE_MIN_LEVEL) {
+                new partieLvlMsg[128];
+                format(partieLvlMsg, sizeof(partieLvlMsg), "Eine Partei kann erst ab Level %d gegründet werden", PARTIE_CREATE_MIN_LEVEL);
+                return SendClientMessage(playerid, COLOR_ERRORTEXT, partieLvlMsg);
+            }
+
             new Float:_temp[3], counter = 0, string[512];
             GetPlayerPos(playerid, _temp[0], _temp[1], _temp[2]);
             strcat(string, "ID\tNom\n");
