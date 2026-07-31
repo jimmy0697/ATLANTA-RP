@@ -6952,7 +6952,7 @@ CMD:selldrugs(playerid,params[])
 		SetPVarInt(pID,"HatDrogenAngebotAnzahl",Anzahl);
 		SetPVarInt(pID,"HatDrogenAngebotPrivat",1);
 		new string[128];
-		format(string,sizeof(string),"* %s te propose %dg de drogue pour %d$. Tape "/accept Drogen" pour accepter.",SpielerInfo[playerid][sName],Anzahl,Preis);
+		format(string,sizeof(string),"* %s te propose %dg de drogue pour %d$. Tape \"/accept Drogen\" pour accepter.",SpielerInfo[playerid][sName],Anzahl,Preis);
 		SendClientMessage(pID,COLOR_PURPLE,string);
 		format(string,sizeof(string),"* Tu proposes %dg de drogue à %s pour %d$.",SpielerInfo[pID][sName],Anzahl,Preis);
 		SendClientMessage(playerid,COLOR_PURPLE,string);
