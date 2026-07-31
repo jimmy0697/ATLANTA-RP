@@ -47,17 +47,8 @@ main()
 #include "core/utils/macros.pwn"
 
 //MYSQL WRAPPER FUNCTIONS - doivent être inclus avant tout fichier qui les utilise
-#include "core/mysql/functions/mysql_CreateTables.pwn"
-#include "core/mysql/functions/mysql_Delete.pwn"
-#include "core/mysql/functions/mysql_GetFloat.pwn"
-#include "core/mysql/functions/mysql_GetInt.pwn"
-#include "core/mysql/functions/mysql_GetIntEx.pwn"
-#include "core/mysql/functions/mysql_GetString.pwn"
-#include "core/mysql/functions/mysql_SetFloat.pwn"
-#include "core/mysql/functions/mysql_SetInt.pwn"
-#include "core/mysql/functions/mysql_SetString.pwn"
-#include "core/mysql/functions/mysql_ReturnBetaKey.pwn"
-#include "core/mysql/functions/mysql_CheckBeta.pwn"
+//Fusionnées en un seul fichier pour éviter les collisions d'include guards (-Z+)
+#include "core/mysql/mysql_wrapper.pwn"
 
 //PENDING VARS & FORWARDS
 
