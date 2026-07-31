@@ -396,7 +396,7 @@ Roulette_OnPlayerKeyStateChange( playerid, KEY:newkeys, KEY:oldkeys )
 
 					ApplyAnimation( playerid, "DEALER", "DEALER_IDLE", 4.1, true, true, true, true, 0, SYNC_ALL );
 
-					new szBigString [256];
+					new szBigString [300];
 
 					szBigString = "~y~~k~~PED_SPRINT~~w~ - Démarrer la partie~n~~y~~k~~PED_FIREWEAPON~/~k~~PED_LOCK_TARGET~~w~ - Miser/Retirer la mise~n~~y~~k~~PED_JUMPING~/~k~~SNEAK_ABOUT~~w~ - Augmenter/Réduire la mise~n~~y~~k~~PED_DUCK~~w~ - Annuler~n~~y~~k~~VEHICLE_ENTER_EXIT~~w~ - Quitter";
 					ShowPlayerHelpDialog( playerid, 0, szBigString );
