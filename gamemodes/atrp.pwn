@@ -46,6 +46,19 @@ main()
 #include "core/utils/functions.pwn"
 #include "core/utils/macros.pwn"
 
+//MYSQL WRAPPER FUNCTIONS - doivent être inclus avant tout fichier qui les utilise
+#include "core/mysql/functions/mysql_CreateTables.pwn"
+#include "core/mysql/functions/mysql_Delete.pwn"
+#include "core/mysql/functions/mysql_GetFloat.pwn"
+#include "core/mysql/functions/mysql_GetInt.pwn"
+#include "core/mysql/functions/mysql_GetIntEx.pwn"
+#include "core/mysql/functions/mysql_GetString.pwn"
+#include "core/mysql/functions/mysql_SetFloat.pwn"
+#include "core/mysql/functions/mysql_SetInt.pwn"
+#include "core/mysql/functions/mysql_SetString.pwn"
+#include "core/mysql/functions/mysql_ReturnBetaKey.pwn"
+#include "core/mysql/functions/mysql_CheckBeta.pwn"
+
 //PENDING VARS & FORWARDS
 
 #include "pending/vars.pwn"
@@ -226,16 +239,6 @@ main()
 #include "core/mysql/bcrypt/OnPasswordChecked.pwn"
 #include "core/mysql/bcrypt/OnPasswordHashed.pwn"
 
-#include "core/mysql/functions/mysql_CreateTables.pwn"
-#include "core/mysql/functions/mysql_Delete.pwn"
-#include "core/mysql/functions/mysql_GetFloat.pwn"
-#include "core/mysql/functions/mysql_GetInt.pwn"
-#include "core/mysql/functions/mysql_GetIntEx.pwn"
-#include "core/mysql/functions/mysql_GetString.pwn"
-#include "core/mysql/functions/mysql_SetFloat.pwn"
-#include "core/mysql/functions/mysql_SetInt.pwn"
-#include "core/mysql/functions/mysql_SetString.pwn"
-
 #include "core/faction/faction.pwn"
 #include "core/faction/police.pwn"
 #include "core/faction/government.pwn"
@@ -260,9 +263,6 @@ main()
 #include "core/robbery/blackmarket.pwn"
 #include "core/robbery/evidence.pwn"
 #include "core/robbery/bankrob.pwn"
-
-#include "core/mysql/functions/mysql_ReturnBetaKey.pwn"
-#include "core/mysql/functions/mysql_CheckBeta.pwn"
 
 #include "core/mysql/callbacks/onCheckPlayerAccount.pwn"
 #include "core/mysql/callbacks/onCheckPlayerBanned.pwn"
