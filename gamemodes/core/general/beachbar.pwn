@@ -743,7 +743,9 @@ public onSelectedBeachRadio(playerid, listitem) {
 
 
 OpenBeachRadios(playerid) {
-    mysql_tquery(sqlHandle, "SELECT * FROM `vehicle_radios` WHERE `radioActive` = 1 LIMIT "#MAX_RADIOS"", "onLoadBeachRadios", "i", playerid);
+    new radioQuery[128];
+    format(radioQuery, sizeof(radioQuery), "SELECT * FROM `vehicle_radios` WHERE `radioActive` = 1 LIMIT %d", MAX_RADIOS);
+    mysql_tquery(sqlHandle, radioQuery, "onLoadBeachRadios", "i", playerid);
     return 1;
 }
 
