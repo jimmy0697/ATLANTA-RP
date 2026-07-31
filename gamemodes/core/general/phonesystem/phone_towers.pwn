@@ -59,8 +59,10 @@ CreateTmasten(playerid) {
         GovVars[govKasse] += MAX_TMASTENPRICE;
 
         SendClientMessage(playerid, COLOR_YELLOW, "Funkmast erstellt!");
-        SendClientMessage(playerid, COLOR_YELLOW, "Dans un rayon de "#MAX_TMASTENRANGE" mètres, tu as du réseau !");
-        format(query,sizeof(query),"%s (ID:%i) a construit une antenne relais. | La construction coûte à la faction "#MAX_TMASTENPRICE".", SpielerInfo[playerid][sName], playerid);
+        new tmastRangeMsg[80];
+        format(tmastRangeMsg, sizeof(tmastRangeMsg), "Dans un rayon de %d mètres, tu as du réseau !", MAX_TMASTENRANGE);
+        SendClientMessage(playerid, COLOR_YELLOW, tmastRangeMsg);
+        format(query,sizeof(query),"%s (ID:%i) a construit une antenne relais. | La construction coûte à la faction %d.", SpielerInfo[playerid][sName], playerid, MAX_TMASTENPRICE);
         sendFactionMessage(COLOR_BLUE, SpielerInfo[playerid][sFraktion], query);
         mysql_format(sqlHandle, query, sizeof(query), "INSERT INTO networktowers (`id`,`X`,`Y`,`Z`,`HP`) VALUES ('%d','%f','%f','%f','%d')",msten,FMastenInfo[msten][sperreX],FMastenInfo[msten][sperreY],FMastenInfo[msten][sperreZ],FMastenInfo[msten][EGmBhHp]);
         mysql_tquery(sqlHandle, query);
@@ -89,7 +91,9 @@ DeleteTMasten(playerid)
         GangZoneDestroy(FMastenInfo[msten][EGmBhMastenZone]);
         DestroyDynamicObject(FMastenInfo[msten][ID]);
         SendClientMessage(playerid, COLOR_YELLOW, "Funkmast entfernt!");
-        SendClientMessage(playerid, COLOR_YELLOW, "Dans un rayon de "#MAX_TMASTENRANGE" mètres, tu n'as pas de réseau !");
+        new tmastRangeMsg2[80];
+        format(tmastRangeMsg2, sizeof(tmastRangeMsg2), "Dans un rayon de %d mètres, tu n'as pas de réseau !", MAX_TMASTENRANGE);
+        SendClientMessage(playerid, COLOR_YELLOW, tmastRangeMsg2);
         mysql_format(sqlHandle, query,sizeof(query),"DELETE FROM networktowers WHERE id = '%d'",msten);
         mysql_tquery(sqlHandle, query);
         return 1;
