@@ -1029,8 +1029,11 @@ stock AddPlayerToTable(playerid, handle)
 			if(!TableData[handle][E_TABLE_STING_NEW_GAME])
 			{
 				SendTableMessage(handle, ""COL_GREY"-- "COL_WHITE"Il y a actuellement deux joueurs à cette table.");
-				SendTableMessage(handle, ""COL_GREY"-- "COL_WHITE"Tout joueur intéressé pour participer a "#T_START_DELAY" secondes pour rejoindre la table.");
-				SendTableMessage(handle, ""COL_GREY"-- "COL_WHITE"La partie commence dans "#T_START_DELAY" secondes...");
+				new pokerStartMsg1[128], pokerStartMsg2[128];
+				format(pokerStartMsg1, sizeof(pokerStartMsg1), ""COL_GREY"-- "COL_WHITE"Tout joueur intéressé pour participer a %d secondes pour rejoindre la table.", T_START_DELAY);
+				SendTableMessage(handle, pokerStartMsg1);
+				format(pokerStartMsg2, sizeof(pokerStartMsg2), ""COL_GREY"-- "COL_WHITE"La partie commence dans %d secondes...", T_START_DELAY);
+				SendTableMessage(handle, pokerStartMsg2);
 				Iter_Clear(IT_PlayersInGame<handle>);
 				TableData[handle][E_TABLE_LOADING_GAME] = true;
 				SetTimerEx("Poker_StartGame", T_START_DELAY * 1000, false, "ii", handle, INVALID_PLAYER_ID);
@@ -1675,7 +1678,9 @@ static stock SendTurnMessage(handle, playerid)
 {
 	SetPlayerClickedTxt(playerid, false);
 	SendTableMessage(handle, "{008080}C'est au tour de %s{008080}...", ReturnPlayerName(playerid));
-	SendPokerMessage(playerid, "C'est ton tour. Tu as "#T_MAX_WAIT_TIME" secondes pour décider.");
+	new pokerTurnMsg[80];
+	format(pokerTurnMsg, sizeof(pokerTurnMsg), "C'est ton tour. Tu as %d secondes pour décider.", T_MAX_WAIT_TIME);
+	SendPokerMessage(playerid, pokerTurnMsg);
 	TableData[handle][E_TABLE_CURRENT_TURN] = playerid;
 	PlayerData[playerid][E_PLAYER_TIMER_STARTED] = true;
 	PlayerData[playerid][E_PLAYER_TIMER_ID] = SetTimerEx("Timer_FoldPlayer", T_MAX_WAIT_TIME * 1000, false, "ii", handle, playerid);
