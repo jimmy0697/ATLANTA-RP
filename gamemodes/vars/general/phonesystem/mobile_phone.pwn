@@ -13,7 +13,6 @@ new HandyInfo[][E_HANDYINFO] =
 	{SERV_NAME"-Phone",0.2}
 };
 
-new PlayerText:HandyInfodraw[MAX_PLAYERS],
-	PlayerText:HandyCalldraw[MAX_PLAYERS],
-
-	AkkuTimer[MAX_PLAYERS];
+new PlayerText:HandyInfodraw[MAX_PLAYERS];
+new PlayerText:HandyCalldraw[MAX_PLAYERS];
+new AkkuTimer[MAX_PLAYERS];
