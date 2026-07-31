@@ -28,6 +28,19 @@
 
 new MySQL:sqlHandle;
 
+//PROTOTYPES MYSQL - évite que le compilateur élimine ces fonctions "stock" avant
+//d'avoir vu leurs appels plus loin dans le fichier (cause des erreurs "not implemented")
+stock mysql_CreateTables();
+stock mysql_Delete(const Table[], const Where[], const Is[]);
+stock mysql_GetInt(const Table[], const Field[], const Where[], const Is[]);
+stock mysql_GetIntEx(const query[]);
+stock mysql_GetString(const Table[], const Field[], const Where[], const Is[]);
+stock mysql_SetFloat(Table[], const Field[], Float:To, const Where[], const Where2[]);
+stock mysql_SetInt(const Table[], const Field[], const To, const Where[], const Where2[]);
+stock mysql_SetString(const Table[], const Field[], const To[], const Where[], const Where2[]);
+stock mysql_ReturnBetaKey(const Name[]);
+stock mysql_CheckBeta(playerid);
+
 #pragma dynamic 13623824
 main()
 {
