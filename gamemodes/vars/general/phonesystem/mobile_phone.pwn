@@ -10,7 +10,7 @@ new HandyInfo[][E_HANDYINFO] =
 	{"Téléphone à clapet",0.7},
 	{"Sell-Phone",0.6},
 	{"TPhone",0.3},
-	{""SERV_NAME"-Phone",0.2}
+	{SERV_NAME"-Phone",0.2}
 };
 
 new PlayerText:HandyInfodraw[MAX_PLAYERS],
