@@ -536,6 +536,6 @@ COMMAND:vehupgrades(playerid, params[]) {
 
 	ShowPlayerDialog(playerid, DIALOG_CAR_UPGRADE_SHOP, DIALOG_STYLE_TABLIST_HEADERS, "{9933FF}RSL: {FFFFFF}Fahrzeugupgrades",
 	"Amélioration\tCoût\n10x réapparition véhicule\t2500$",
-	""Choisir", "Annuler");
+	"Choisir", "Annuler");
 	return 1;
 }
