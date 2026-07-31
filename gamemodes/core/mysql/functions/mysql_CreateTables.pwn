@@ -1,6 +1,6 @@
 stock mysql_CreateTables() {
 
-    mysql_tquery_file(sqlHandle, "mysql/"#MYSQL_TABLE_DATA"", "onCreateTablesExecuted");
+    mysql_tquery_file(sqlHandle, "mysql/"MYSQL_TABLE_DATA, "onCreateTablesExecuted");
     return 1;
 }
 
