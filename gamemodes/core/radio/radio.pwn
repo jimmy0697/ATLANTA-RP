@@ -2,7 +2,9 @@ new playerRadioList[MAX_PLAYERS][MAX_RADIOS];
 new playerRadioMax[MAX_PLAYERS] = 0;
 
 OpenVehicleRadios(playerid) {
-    mysql_tquery(sqlHandle, "SELECT * FROM `vehicle_radios` WHERE `radioActive` = 1 LIMIT "#MAX_RADIOS"", "onLoadVehicleRadios", "i", playerid);
+    new radioQuery[128];
+    format(radioQuery, sizeof(radioQuery), "SELECT * FROM `vehicle_radios` WHERE `radioActive` = 1 LIMIT %d", MAX_RADIOS);
+    mysql_tquery(sqlHandle, radioQuery, "onLoadVehicleRadios", "i", playerid);
     return 1;
 }
 
